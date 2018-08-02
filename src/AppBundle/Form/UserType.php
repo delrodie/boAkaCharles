@@ -24,14 +24,16 @@ class UserType extends AbstractType
             ->add('username', TextType::class, array(
               'attr'  => array(
                   'class' => 'form-control',
-                  'autocomplete'  => 'off'
+                  'autocomplete'  => 'off',
+                  'placeholder' => 'Nom utilsateur'
               )
         ))
             //->add('usernameCanonical')
             ->add('email', EmailType::class, array(
               'attr'  => array(
                   'class' => 'form-control',
-                  'autocomplete'  => 'off'
+                  'autocomplete'  => 'off',
+                  'placeholder' => 'Adresse Email'
               )
         ))
             //->add('emailCanonical')
@@ -48,11 +50,8 @@ class UserType extends AbstractType
             ->add('roles', ChoiceType::class, array(
               'choices' => array(
                 'UTILISATEUR '  => 'ROLE_USER',
+                'REDACTEUR '  => 'ROLE_AUTEUR',
                 'ADMINISTRATEUR '  => 'ROLE_ADMIN',
-              ),
-              'attr'  => array(
-                  'class' => 'form-control',
-                  'autocomplete'  => 'off'
               ),
               'multiple'  => true,
               'expanded'  => true

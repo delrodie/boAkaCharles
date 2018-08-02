@@ -5,12 +5,15 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * User controller.
  *
- * @Route("admin/user")
+ * @Route("backend/user")
+ * @Security("has_role('ROLE_SUPER_ADMIN')")
  */
 class UserController extends Controller
 {
@@ -24,7 +27,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $users = $em->getRepository('AppBundle:User')->findAll();
+        $users = $em->getRepository('AppBundle:User')->findListASC();
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,
@@ -49,7 +52,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('admin_user_show', array('id' => $user->getId()));
+            return $this->redirectToRoute('admin_user_index');
         }
 
         return $this->render('user/new.html.twig', array(
@@ -94,7 +97,7 @@ class UserController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_user_edit', array('id' => $user->getId()));
+            return $this->redirectToRoute('admin_user_index');
         }
 
         return $this->render('user/edit.html.twig', array(

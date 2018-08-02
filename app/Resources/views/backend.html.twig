@@ -76,7 +76,7 @@
           {% if is_granted('IS_AUTHENTICATED_FULLY') %}
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ absolute_url(asset('build/images/avatar.png'))}}" class="user-image rounded-circle" alt="{{ app.user.username }}">
+              <img src="{{ absolute_url(asset('backend/images/avatar.png'))}}" class="user-image rounded-circle" alt="{{ app.user.username }}">
               <span class="d-none d-sm-inline-block">{{ app.user.username|title }}</span>
             </a>
             <ul class="dropdown-menu scale-up">
@@ -138,7 +138,7 @@
             <li><a href="#"><i class="fa fa-newspaper"></i> activites</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Biographie et Blog</span>
@@ -181,7 +181,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ absolute_url(path('homepage'))}}"><i class="fa fa-users"></i> Utilisateurs</a></li>
+            <li><a href="{{ absolute_url(path('admin_user_index'))}}"><i class="fa fa-users"></i> Utilisateurs</a></li>
             <li><a href="#"><i class="fa fa-user-edit"></i> Auteurs</a></li>
           </ul>
         </li>      
@@ -203,6 +203,7 @@
 
 </div>
 
+    {% block javascripts %}
     {% javascripts 
         'backend/assets/vendor_components/jquery/dist/jquery.min.js'
         'backend/assets/vendor_components/popper/dist/popper.min.js'
@@ -215,6 +216,7 @@
     %}
     <script src="{{ absolute_url(asset_url)}}"></script>
     {% endjavascripts %}
+    {% endblock %}
 	
 </body>
 
