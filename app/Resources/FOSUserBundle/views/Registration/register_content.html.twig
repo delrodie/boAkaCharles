@@ -1,8 +1,33 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+    <div class="form-group has-feedback">
+          {{ form_errors(form.email)}}
+         {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Adresse email'}})}}
+        <span class="fa fa-envelope form-control-feedback "></span>
+      </div>
+      <div class="form-group has-feedback">
+          {{ form_errors(form.username)}}
+         {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Nom utilisateur'}})}}
+        <span class="fa fa-user form-control-feedback "></span>
+      </div>
+      <div class="form-group has-feedback">
+          {{ form_errors(form.plainPassword.first)}}
+         {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}})}}
+        <span class="fa fa-lock form-control-feedback "></span>
+      </div>
+      <div class="form-group has-feedback">
+          {{ form_errors(form.plainPassword.second)}}
+         {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': 'Repeter le mot de passe'}})}}
+        <span class="fa fa-lock form-control-feedback "></span>
+      </div>
     {{ form_widget(form) }}
     <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-info btn-block btn-flat margin-top-10" /> 
     </div>
 {{ form_end(form) }}
+
+<div class="margin-top-20 text-center">
+    <p>Avez-vous deja un compte?<a href="{{ absolute_url(path('fos_user_security_login'))}}" class="text-info m-l-5"> Se connecter</a></p>
+</div>
