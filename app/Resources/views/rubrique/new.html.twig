@@ -1,0 +1,51 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}{{ parent() }} Enregistrer une nouvelle rubrique{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+      <h1>Enregistrement d'une nouvellle rubrique</h1>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ absolute_url(path('backend'))}}"><i class="fa fa-home"></i> Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ absolute_url(path('admin_user_index'))}}">Utilisateur</a></li>
+        <li class="breadcrumb-item active">Enregistrement d'un nouvel utilisatement</li>
+      </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="box box-warning">
+            <div class="box-header text-right">
+              <a href="{{ absolute_url(path('admin_user_index'))}}" class="btn btn-social btn-primary"><i class="fa fa-list"></i>Liste des utilisateurs</a>
+            </div>
+            <div class="box-body">
+              <div class="row justify-content-center">
+                <div class="col-6">
+                    {{ form_start(form, {'attr':{'class':'form-horizontal'}}) }}
+                        <div class="form-group row">
+                            <label class="col-sm-4 control-label text-right">Libelle</label>
+                            <div class="col-sm-8">
+                                {{ form_widget(form.libelle)}}
+                                <span class="help-block">{{ form_errors(form.libelle)}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4 control-label text-right"></div>
+                            <div class="checkbox col-sm-2">
+                                {{ form_widget(form.statut)}}
+                                <label for="appbundle_user_enabled">Activé</label>
+                            </div>
+                        </div>
+                        {{ form_widget(form) }}
+                        <div class="box-footer">
+                            <button type="reset" class="btn btn-default">Annuler</button>
+                            <button type="submit" class="btn btn-info pull-right">Enregistrer</button>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+{% endblock %}

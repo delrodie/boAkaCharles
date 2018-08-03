@@ -56,3 +56,4 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/, role: ROLE_USER }
         - { path: ^/backend/biographie, role: ROLE_AUTEUR }
+        - { path: ^/backend/actualite, role: ROLE_AUTEUR }
