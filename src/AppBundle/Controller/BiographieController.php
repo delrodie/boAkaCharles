@@ -89,13 +89,15 @@ class BiographieController extends Controller
      * @Route("/{slug}/edit", name="backend_biographie_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Biographie $biographie)
+    public function editAction(Request $request, Biographie $biographie, Utilities $utilities)
     {
         $deleteForm = $this->createDeleteForm($biographie);
         $editForm = $this->createForm('AppBundle\Form\BiographieType', $biographie);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $resume = $utilities->resume($biographie->getContenu(), 300, '...', true);
+            $biographie->setResume($resume); //dump($biographie);die();
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('backend_biographie_index');
