@@ -11,7 +11,8 @@
 
     <title>{% block title %}Backoffice{% endblock %} </title>
   
-	{% stylesheets
+  {% block stylesheets %}
+    	{% stylesheets
         'backend/assets/vendor_components/bootstrap/dist/css/bootstrap.min.css'
         'backend/css/master_style.css'
         'backend/css/skins/_all-skins.css'
@@ -20,6 +21,7 @@
          %}
         <link rel="stylesheet" href="{{ absolute_url(asset_url)}}" />
     {% endstylesheets %}
+  {% endblock %}
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -102,7 +104,7 @@
   
   <aside class="main-sidebar">
     <section class="sidebar">
-      <div class="user-panel" style="background-image: url({{ absolute_url(asset('build/images/user-info.jpg'))}});">
+      <div class="user-panel" style="background-image: url({{ absolute_url(asset('backend/images/user-info.jpg'))}});">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div class="image">
           <img src="{{ absolute_url(asset('backend/images/avatar.png'))}}" class="rounded-circle" alt="{{ app.user.username }}">
@@ -147,7 +149,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-user-tie"></i> Biographie</a></li>
+            <li><a href="{{ absolute_url(path('backend_biographie_index'))}}"><i class="fa fa-user-tie"></i> Biographie</a></li>
             <li><a href="#"><i class="fa fa-newspaper"></i> Blog</a></li>
             <li><a href="#"><i class="fa fa-phone"></i> Contact</a></li>
           </ul>

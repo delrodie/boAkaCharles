@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Biographie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ biographie.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ biographie.titre }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>{{ biographie.resume }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ biographie.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Tags</th>
+                <td>{{ biographie.tags }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{% if biographie.statut %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Imagename</th>
+                <td>{{ biographie.imageName }}</td>
+            </tr>
+            <tr>
+                <th>Imagesize</th>
+                <td>{{ biographie.imageSize }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if biographie.updatedAt %}{{ biographie.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ biographie.slug }}</td>
+            </tr>
+            <tr>
+                <th>Publiepar</th>
+                <td>{{ biographie.publiePar }}</td>
+            </tr>
+            <tr>
+                <th>Modifiepar</th>
+                <td>{{ biographie.modifiePar }}</td>
+            </tr>
+            <tr>
+                <th>Publiele</th>
+                <td>{{ biographie.publieLe }}</td>
+            </tr>
+            <tr>
+                <th>Modifiele</th>
+                <td>{{ biographie.modifieLe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('backend_biographie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('backend_biographie_edit', { 'id': biographie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

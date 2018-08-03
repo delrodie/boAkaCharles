@@ -55,4 +55,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/, role: ROLE_USER }
-        #- { path: ^/backend/, role: ROLE_ADMIN }
+        - { path: ^/backend/biographie, role: ROLE_AUTEUR }
