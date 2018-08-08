@@ -57,3 +57,5 @@ security:
         #- { path: ^/, role: ROLE_USER }
         - { path: ^/backend/biographie, role: ROLE_AUTEUR }
         - { path: ^/backend/actualite, role: ROLE_AUTEUR }
+        - { path: ^/backend/rubrique, role: ROLE_AUTEUR }
+        - { path: ^/backend/post, role: ROLE_AUTEUR }

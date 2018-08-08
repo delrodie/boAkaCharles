@@ -151,7 +151,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ absolute_url(path('backend_biographie_index'))}}"><i class="fa fa-user-tie"></i> Biographie</a></li>
             <li><a href="{{ absolute_url(path('backend_actualite_index'))}}"><i class="fa fa-newspaper"></i> Actualite</a></li>
-            <li><a href="#"><i class="fa fa-newspaper"></i> Blog</a></li>
+            <li><a href="{{ absolute_url(path('backend_post_index'))}}"><i class="fa fa-newspaper"></i> Blog</a></li>
             <li><a href="#"><i class="fa fa-phone"></i> Contact</a></li>
           </ul>
         </li>
@@ -185,7 +185,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ absolute_url(path('admin_user_index'))}}"><i class="fa fa-users"></i> Utilisateurs</a></li>
-            <li><a href="#"><i class="fa fa-user-edit"></i> Auteurs</a></li>
+            <li><a href="#"><i class="fa fa-user-edit"></i> Redacteurs</a></li>
           </ul>
         </li>      
         
