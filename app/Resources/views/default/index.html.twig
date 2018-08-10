@@ -1,11 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <a href="{{ absolute_url(path('backend')) }}">Backend</a>
-
-        </div>
-    </div>
+    <div class="blog-list">
+									{% for actualite in actualites %}
+                                    <div class="blog-item text-center mb-6">
+										<div class="blog-inner">
+											<a href="#">
+												<div class="overlay"><i class="fa fa-link"></i></div>
+												<img src="{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.titre }}" />
+											</a>
+											<div class="info">
+												<div class="tags">
+													<span class="badge badge-primary">{{ actualite.publieLe|date('d/m/Y')}}</span> 
+													<a href="#">{{ actualite.rubrique }}</a>
+												</div>
+												<div class="title">
+													<a href="#">{{ actualite.titre }}</a>
+												</div>
+												<div class="text text-justify">
+													<p>
+                                                        {{ actualite.resume|raw }}
+                                                    </p>
+													<a href="#" class="button small">Lire la suite</a>
+												</div>
+											</div>
+										</div>
+									</div>  
+                                    {% endfor %}
+								</div>
 {% endblock %}
+
+{% block actualite %}{{ render(url('frontend_actualite_accueil'))}}{% endblock %}
 

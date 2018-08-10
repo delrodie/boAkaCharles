@@ -1,0 +1,5 @@
+{% for biographie in biographies %}
+<p class="text-justify">{{ biographie.resume|raw }}</p>  
+{% else %}
+<p>Redaction encours...</p>
+{% endfor %}

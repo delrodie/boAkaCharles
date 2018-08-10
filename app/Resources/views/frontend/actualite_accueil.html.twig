@@ -1,0 +1,18 @@
+<div class="section mt-7 mb-9">
+					<div class="container">
+						<div class="row">
+							{% for actualite in actualites %}
+                            <div class="col-md-4">
+								<div class="banner">
+									<a href="#" class="link" titre="{{ actualite.titre }}">
+										<img src="{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.titre }}" />
+									</a>
+									<div class="caption">
+										<span>{{ actualite.publieLe|date('d-m-Y')}}</span>
+									</div>
+								</div>
+							</div>  
+                            {% endfor %}
+						</div>
+					</div>
+				</div>

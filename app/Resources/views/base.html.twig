@@ -1,13 +1,611 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<!doctype html>
+<html lang="fr">
+	
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="icon" href="#"/>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ absolute_url(asset('favicon.ico')) }}" />
+		<title>AKA CHARLES</title>
+
+        {% block stylesheets %}
+            {% stylesheets
+                'frontend/css/bootstrap.min.css'
+                'frontend/css/font-awesome.min.css'
+                'frontend/css/font-materialdesign.css'
+                'frontend/css/slick.css'
+                'frontend/css/magnific-popup.min.css'
+                'frontend/css/flexslider.css'
+                'frontend/css/style.css'
+                'frontend/css/style-magazine.css'
+                'frontend/css/custom.css'
+                filter='cssrewrite' output='frontend/css/akacharles.css'
+                %}
+                <link rel="stylesheet" href="{{ absolute_url(asset_url)}}" />
+            {% endstylesheets %}
+        {% endblock %}
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i%7CNoto+Sans:400,400i,700,700i" />
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	<!--<body style="background-image: url(images/background/bg_02.jpg');">-->
+		<div id="body_hider" class="hider_flag"></div>
+		<div id="body_hider_full" class="hider_flag"></div>
+		<div class="hidden-bar mobile-panel">
+			<div class="hidden-bar-inner">
+				<div id="hidden-bar-logo" class="hidden-bar-logo">
+					<a href="index.html"><img src="" alt="" /></a>
+				</div>
+				<div class="mobile-menu">
+					<ul class="nav-collapse navbar-nav">
+						<li>
+							<a href="{{ absolute_url(path('homepage'))}}">Accueil </a>
+						</li>
+						<li>
+							<a href="{{ absolute_url(path('frontend_biographie'))}}">Biographie </a>
+						</li>
+						<li>
+							<a href="#">Actualites </a>
+						</li>
+						<li>
+							<a href="#">Blog </a>
+						</li>
+						<li><a href="#">Contribution</a></li>
+						<li>
+							<a href="#">Contact </a>
+						</li>
+					</ul>
+				</div>
+				<div class="simple-line mt-2 mb-2"></div>
+				<div class="widget">
+					<div class="widget-title-wrapper">
+						<div class="widget-title white">
+							Me suivre
+						</div>
+					</div>
+					<div class="widget-social text-center">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="site">
+			<div class="topbar roboto">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="float-left">
+								{{ "now"|date('D d M Y') }}
+							</div>
+							<div class="float-right">
+								<div class="search-trigger">
+									<i class="fa fa-search"></i>
+									<i class="fa fa-times"></i>
+								</div>
+								<div class="header-social">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+								</div>
+							</div>
+							<div class="header-search">
+								<form class="form-search">
+									<input type="text" value="" name="s" class="search-query roboto" placeholder="Recherche..." />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<header class="header header-sticky">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="sticky-menu">
+								<div class="main-menu">
+									<div class="main-menu-inner">
+										<ul class="nav-collapse navbar-nav">
+											<li>
+												<a href="{{ absolute_url(path('homepage'))}}">Accueil </a>
+											</li>
+											<li>
+												<a href="{{ absolute_url(path('frontend_biographie'))}}">Biographie </a>
+											</li>
+											<li>
+												<a href="#">Actualites </a>
+											</li>
+											<li>
+												<a href="#">Blog <i class="fa fa-angle-down"></i></a>
+												<ul class="sub-menu">
+													<li><a href="shop.html">Shop</a></li>
+													<li><a href="shop-detail.html">Single Product</a></li>
+													<li><a href="cart-empty.html">Empty Cart</a></li>
+													<li><a href="cart.html">Cart</a></li>
+													<li><a href="checkout.html">Checkout</a></li>
+													<li><a href="my-account.html">My account</a></li>
+												</ul>
+											</li>
+											<li><a href="#">Contribution</a></li>
+											<li><a href="#">Contact</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<header class="header header-desktop">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-4">
+							<div id="logo">
+								<a href="index.html">
+									<img src="{{ absolute_url(asset('frontend/images/logo.png'))}}" alt="aka charles" />
+								</a>
+							</div>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-8 text-right text-center-sm">
+							<img src="{{ absolute_url(asset('frontend/images/header-01.png'))}}" alt="aka charles" class="hidden-sm hidden-xs" />
+							<div class="sidebar-trigger hidden-bar-toggle">
+								<div class="line line-1"></div>
+								<div class="line line-2"></div>
+								<div class="line line-3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12 p-0">
+							<div class="main-menu">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-12 p-0">
+											<div class="main-menu-inner">
+												<ul class="nav-collapse navbar-nav">
+													<li>
+														<a href="{{ absolute_url(path('homepage'))}}">Accueil </a>
+													</li>
+													<li>
+														<a href="{{ absolute_url(path('frontend_biographie'))}}">Biographie </a>
+													</li>
+													<li>
+														<a href="actualite.html">Actualites </a>
+													</li>
+													<li class="megamenu mega-col-4">
+														<a href="#">Blog <i class="fa fa-angle-down"></i></a>
+														<div class="sub-menu">
+															<div class="container">
+																<div class="row">
+																	<div class="col-md-3">
+																		<div class="shout-mega-post">
+																			<a href="blog-detail.html">
+																				<div class="featured">
+																					<img src="images/blog/03.jpg" alt="" />
+																				</div>
+																			</a>
+																			<div class="shout-mega-date">May 31, 2017</div>
+																			<div class="shout-mega-title">
+																				<a href="blog-detail.html">We Love Blogging</a>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-md-3">
+																		<div class="shout-mega-post">
+																			<a href="blog-detail.html">
+																				<div class="featured">
+																					<img src="images/blog/03.jpg" alt="" />
+																				</div>
+																			</a>
+																			<div class="shout-mega-date">May 31, 2017</div>
+																			<div class="shout-mega-title">
+																				<a href="blog-detail.html">The Good Life</a>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-md-3">
+																		<div class="shout-mega-post">
+																			<a href="blog-detail.html">
+																				<div class="featured">
+																					<img src="images/blog/03.jpg" alt="" />
+																				</div>
+																			</a>
+																			<div class="shout-mega-date">May 31, 2017</div>
+																			<div class="shout-mega-title">
+																				<a href="blog-detail.html">Amazed, But Faithful</a>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-md-3">
+																		<div class="shout-mega-post">
+																			<a href="blog-detail.html">
+																				<div class="featured">
+																					<img src="images/blog/03.jpg" alt="" />
+																				</div>
+																			</a>
+																			<div class="shout-mega-date">May 31, 2017</div>
+																			<div class="shout-mega-title">
+																				<a href="blog-detail.html">Benefits Of Early Rising</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</li>
+													<li>
+														<a href="#">Contribution </a>
+													</li>
+													<li><a href="contact.html">Contact</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div id="main">
+				<div class="section">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12 p-0">
+								<div class="blog-slick-slider" data-items="3">
+									<div class="blog-item">
+										<div class="blog-inner">
+											<a href="blog-detail.html">
+												<img src="images/blog/06.jpg" alt="" />
+											</a>
+											<div class="info">
+												<div class="tags">
+													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
+												</div>
+												<div class="title">
+													<a href="blog-detail.html">Bright Future Ahead</a>
+												</div>
+												<div class="meta">
+													<span class="date">April 05, 2018</span>
+													<a class="readmore" href="blog-detail.html">Read More →</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="blog-item">
+										<div class="blog-inner">
+											<a href="blog-detail.html">
+												<img src="images/blog/06.jpg" alt="" />
+											</a>
+											<div class="info">
+												<div class="tags">
+													<a href="#">Untold Stories</a>, <a href="#">LifeStyle</a>
+												</div>
+												<div class="title">
+													<a href="blog-detail.html">We Love Blogging</a>
+												</div>
+												<div class="meta">
+													<span class="date">April 05, 2018</span>
+													<a class="readmore" href="blog-detail.html">Read More →</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="blog-item">
+										<div class="blog-inner">
+											<a href="blog-detail.html">
+												<img src="images/blog/06.jpg" alt="" />
+											</a>
+											<div class="info">
+												<div class="tags">
+													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
+												</div>
+												<div class="title">
+													<a href="blog-detail.html">The Good Life</a>
+												</div>
+												<div class="meta">
+													<span class="date">April 05, 2018</span>
+													<a class="readmore" href="blog-detail.html">Read More →</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="blog-item">
+										<div class="blog-inner">
+											<a href="blog-detail.html">
+												<img src="images/blog/06.jpg" alt="" />
+											</a>
+											<div class="info">
+												<div class="tags">
+													<a href="#">Untold Stories</a>, <a href="#">LifeStyle</a>
+												</div>
+												<div class="title">
+													<a href="blog-detail.html">Amazed, But Faithful</a>
+												</div>
+												<div class="meta">
+													<span class="date">April 05, 2018</span>
+													<a class="readmore" href="blog-detail.html">Read More →</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="blog-item">
+										<div class="blog-inner">
+											<a href="blog-detail.html">
+												<img src="images/blog/06.jpg" alt="" />
+											</a>
+											<div class="info">
+												<div class="tags">
+													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
+												</div>
+												<div class="title">
+													<a href="blog-detail.html">Benefits Of Early Rising</a>
+												</div>
+												<div class="meta">
+													<span class="date">April 05, 2018</span>
+													<a class="readmore" href="blog-detail.html">Read More →</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="blog-item">
+										<div class="blog-inner">
+											<a href="blog-detail.html">
+												<img src="images/blog/06.jpg" alt="" />
+											</a>
+											<div class="info">
+												<div class="tags">
+													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
+												</div>
+												<div class="title">
+													<a href="blog-detail.html">The Newest Spot</a>
+												</div>
+												<div class="meta">
+													<span class="date">April 05, 2018</span>
+													<a class="readmore" href="blog-detail.html">Read More →</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section mt-7">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8">
+								{% block body %}{% endblock %}
+							</div>
+							<div class="col-sm-4">
+								<div class="widget">
+									<div class="widget-title-wrapper">
+										<div class="widget-title">
+											Qui suis-je ?
+											<div class="simple-line"></div>
+										</div>
+										<div class="simple-line"></div>
+									</div>
+									<div class="vcard text-center">
+										{{ render(url('frontend_biographie_resume'))}}
+									</div>
+								</div>
+								<div class="widget">
+									<div class="widget-title-wrapper">
+										<div class="widget-title">
+											Me suivre
+											<div class="simple-line"></div>
+										</div>
+										<div class="simple-line"></div>
+									</div>
+									<div class="widget-social text-center">
+										<a href="#"><i class="fa fa-facebook"></i></a>
+										<a href="#"><i class="fa fa-twitter"></i></a>
+										<a href="#"><i class="fa fa-instagram"></i></a>
+										<a href="#"><i class="fa fa-linkedin"></i></a>
+									</div>
+								</div>
+								<div class="widget">
+									<div class="widget-title-wrapper">
+										<div class="widget-title">
+											Facebook
+											<div class="simple-line"></div>
+										</div>
+										<div class="simple-line"></div>
+									</div>
+									<div class="widget-recent-post">
+										<div class="fb-page" data-href="https://www.facebook.com/fondationjadore.treichville/" data-tabs="timeline,events,messages" data-height="1200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fondationjadore.treichville/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fondationjadore.treichville/">Fondation j&#039;Adore Treichville</a></blockquote></div>
+									</div>
+									<div id="fb-root"></div>
+									<script>(function(d, s, id) {
+									  var js, fjs = d.getElementsByTagName(s)[0];
+									  if (d.getElementById(id)) return;
+									  js = d.createElement(s); js.id = id;
+									  js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.1';
+									  fjs.parentNode.insertBefore(js, fjs);
+									}(document, 'script', 'facebook-jssdk'));</script>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				{% block actualite %}{% endblock %}
+			</div>
+			<footer class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="widget">
+								<div class="widget-inner">
+									<div class="mb-2"></div>
+                                    {{ render(url('frontend_biographie_footer'))}}
+									<div class="widget-title mt-2 mb-1">Continuer a me suivre</div>
+									<div class="footer-social">
+										<a href="#"><i class="fa fa-facebook"></i></a>
+										<a href="#"><i class="fa fa-twitter"></i></a>
+										<a href="#"><i class="fa fa-instagram"></i></a>
+										<a href="#"><i class="fa fa-linkedin"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="widget">
+								<div class="widget-inner">
+									<div class="widget-title">RECENT POSTS</div>
+									<div class="recent-posts">
+										<ul class="recent-post">
+											<li>
+												<h6 class="header-font">
+														<a href="{{ absolute_url(path('frontend_biographie'))}}">
+															Biographie
+														</a>
+													</h6>
+												<div class="simple_line"></div>
+											</li>
+											<li>
+												<h6 class="header-font">
+													<a href="#">
+														Actualites
+													</a>
+												</h6>
+												<div class="simple_line"></div>
+											</li>
+											<li>
+												<h6 class="header-font">
+													<a href="#">
+														Blog
+													</a>
+												</h6>
+												<div class="simple_line"></div>
+											</li>
+											<li>
+												<h6 class="header-font">
+													<a href="#">
+														Contribution
+													</a>
+												</h6>
+												<div class="simple_line"></div>
+											</li>
+											<li>
+												<h6 class="header-font">
+													<a href="#">
+														Contact
+													</a>
+												</h6>
+												<div class="simple_line"></div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="widget">
+								<div class="widget-inner">
+									<div class="widget-title">MES TWEETS</div>
+									<div class="recent-tweets">
+										<div class="twt-avatar">
+											<a target="_blank" href="#">
+												<img src="images/avatar/author.jpg" alt="" />
+											</a>
+										</div>
+										<div class="twt-author fw-bolder">Author</div>
+										<div class="twt-follow">
+											<a target="_blank" href="#">Follow on Twitter</a>
+										</div>
+										<div class="clearfix"></div>
+										<div class="simple_line"></div>
+										<div class="twt-icon pull-left">
+											<i class="fa fa-twitter"></i>
+										</div>
+										<div class="twitter-slider" data-autoplay="true" data-delay="5500">
+											<ul class="slides">
+												<li class="twt-item">
+													<div class="twt-body">
+														<div class="twt-in">
+															Verve <a href="#" target="_blank">#WordPress</a> <a href="#" target="_blank">#Theme</a> is now officially compatible with <a href="#" target="_blank">#WPML</a>: <a href="#" target="_blank">https://t.co/l1Kp6Gy5RV</a> <a href="#" target="_blank">https://t.co/OdesvAfl4h</a>
+														</div>
+														<div class="clearfix"></div>
+														<a class="twitter-time header-font fw-bolder" target="_blank" href="#">46 days ago</a>
+														<span class="twt-extra-info"> - <a class="twitter-time header-font fw-bolder" target="_blank" href="#">Author</a></span>
+													</div>
+												</li>
+												<li class="twt-item">
+													<div class="twt-body">
+														<div class="twt-in">
+															Verve <a href="#" target="_blank">#WordPress</a> <a href="#" target="_blank">#Theme</a> is now officially compatible with <a href="#" target="_blank">#WPML</a>: <a href="#" target="_blank">https://t.co/l1Kp6Gy5RV</a> <a href="#" target="_blank">https://t.co/OdesvAfl4h</a>
+														</div>
+														<div class="clearfix"></div>
+														<a class="twitter-time header-font fw-bolder" target="_blank" href="#">46 days ago</a>
+														<span class="twt-extra-info"> - <a class="twitter-time header-font fw-bolder" target="_blank" href="#">Author</a></span>
+													</div>
+												</li>
+												<li class="twt-item">
+													<div class="twt-body">
+														<div class="twt-in">
+															Verve <a href="#" target="_blank">#WordPress</a> <a href="#" target="_blank">#Theme</a> is now officially compatible with <a href="#" target="_blank">#WPML</a>: <a href="#" target="_blank">https://t.co/l1Kp6Gy5RV</a> <a href="#" target="_blank">https://t.co/OdesvAfl4h</a>
+														</div>
+														<div class="clearfix"></div>
+														<a class="twitter-time header-font fw-bolder" target="_blank" href="#">46 days ago</a>
+														<span class="twt-extra-info"> - <a class="twitter-time header-font fw-bolder" target="_blank" href="#">Author</a></span>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</footer>
+			<div class="copyright">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-6">
+							&copy; Copyright 2018 AKA CHARLES | Tous droits reserves
+						</div>
+						<div class="col-sm-6">
+							<div class="text-right text-center-xs">By <a href="#">Esthete</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="hook-to-top" class="prk_radius">
+			<i class="fa fa-arrow-up"></i>
+		</div>
+		
+    {% block javascripts %}
+    {% javascripts 
+        'frontend/js/jquery.min.js'
+        'frontend/js/jquery-migrate.min.js'
+        'frontend/js/bootstrap.min.js'
+        'frontend/js/classie.js'
+        'frontend/js/slick.js'
+        'frontend/js/jquery.flexslider-min.js'
+        'frontend/js/jquery.magnific-popup.min.js'
+        'frontend/js/script.js'
+        output='backend/js/akacharles.js'
+    %}
+    <script src="{{ absolute_url(asset_url)}}"></script>
+    {% endjavascripts %}
+    {% endblock %}
+
+	</body>
+
 </html>

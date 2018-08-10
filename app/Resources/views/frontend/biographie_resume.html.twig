@@ -1,0 +1,9 @@
+{% for biographie in biographies %}
+<img src="{{ vich_uploader_asset(biographie, 'imageFile') }}" alt="{{ biographie.titre }}" />
+<div class="mb-1"></div>
+<p class="text-justify">{{ biographie.resume|raw }}</p>  
+{% else %}
+<img src="images/actualites/01.jpg" alt="" />
+<div class="mb-1"></div>
+<p>Redaction encours...</p>
+{% endfor %}
