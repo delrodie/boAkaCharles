@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<link rel="icon" href="#"/>
         <link rel="shortcut icon" type="image/x-icon" href="{{ absolute_url(asset('favicon.ico')) }}" />
-		<title>AKA CHARLES</title>
+		<title>{% block titre %}AKA CHARLES{% endblock %}</title>
 
         {% block stylesheets %}
             {% stylesheets
@@ -50,7 +50,7 @@
 							<a href="{{ absolute_url(path('frontend_biographie'))}}">Biographie </a>
 						</li>
 						<li>
-							<a href="#">Actualites </a>
+							<a href="{{ absolute_url(path('frontend_actualite'))}}">Actualites </a>
 						</li>
 						<li>
 							<a href="#">Blog </a>
@@ -121,7 +121,7 @@
 												<a href="{{ absolute_url(path('frontend_biographie'))}}">Biographie </a>
 											</li>
 											<li>
-												<a href="#">Actualites </a>
+												<a href="{{ absolute_url(path('frontend_actualite'))}}">Actualites </a>
 											</li>
 											<li>
 												<a href="#">Blog <i class="fa fa-angle-down"></i></a>
@@ -180,7 +180,7 @@
 														<a href="{{ absolute_url(path('frontend_biographie'))}}">Biographie </a>
 													</li>
 													<li>
-														<a href="actualite.html">Actualites </a>
+														<a href="{{ absolute_url(path('frontend_actualite'))}}">Actualites </a>
 													</li>
 													<li class="megamenu mega-col-4">
 														<a href="#">Blog <i class="fa fa-angle-down"></i></a>
@@ -262,122 +262,6 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-md-12 p-0">
-								<div class="blog-slick-slider" data-items="3">
-									<div class="blog-item">
-										<div class="blog-inner">
-											<a href="blog-detail.html">
-												<img src="images/blog/06.jpg" alt="" />
-											</a>
-											<div class="info">
-												<div class="tags">
-													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
-												</div>
-												<div class="title">
-													<a href="blog-detail.html">Bright Future Ahead</a>
-												</div>
-												<div class="meta">
-													<span class="date">April 05, 2018</span>
-													<a class="readmore" href="blog-detail.html">Read More →</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="blog-item">
-										<div class="blog-inner">
-											<a href="blog-detail.html">
-												<img src="images/blog/06.jpg" alt="" />
-											</a>
-											<div class="info">
-												<div class="tags">
-													<a href="#">Untold Stories</a>, <a href="#">LifeStyle</a>
-												</div>
-												<div class="title">
-													<a href="blog-detail.html">We Love Blogging</a>
-												</div>
-												<div class="meta">
-													<span class="date">April 05, 2018</span>
-													<a class="readmore" href="blog-detail.html">Read More →</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="blog-item">
-										<div class="blog-inner">
-											<a href="blog-detail.html">
-												<img src="images/blog/06.jpg" alt="" />
-											</a>
-											<div class="info">
-												<div class="tags">
-													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
-												</div>
-												<div class="title">
-													<a href="blog-detail.html">The Good Life</a>
-												</div>
-												<div class="meta">
-													<span class="date">April 05, 2018</span>
-													<a class="readmore" href="blog-detail.html">Read More →</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="blog-item">
-										<div class="blog-inner">
-											<a href="blog-detail.html">
-												<img src="images/blog/06.jpg" alt="" />
-											</a>
-											<div class="info">
-												<div class="tags">
-													<a href="#">Untold Stories</a>, <a href="#">LifeStyle</a>
-												</div>
-												<div class="title">
-													<a href="blog-detail.html">Amazed, But Faithful</a>
-												</div>
-												<div class="meta">
-													<span class="date">April 05, 2018</span>
-													<a class="readmore" href="blog-detail.html">Read More →</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="blog-item">
-										<div class="blog-inner">
-											<a href="blog-detail.html">
-												<img src="images/blog/06.jpg" alt="" />
-											</a>
-											<div class="info">
-												<div class="tags">
-													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
-												</div>
-												<div class="title">
-													<a href="blog-detail.html">Benefits Of Early Rising</a>
-												</div>
-												<div class="meta">
-													<span class="date">April 05, 2018</span>
-													<a class="readmore" href="blog-detail.html">Read More →</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="blog-item">
-										<div class="blog-inner">
-											<a href="blog-detail.html">
-												<img src="images/blog/06.jpg" alt="" />
-											</a>
-											<div class="info">
-												<div class="tags">
-													<a href="#">Free Your Mind</a>, <a href="#">LifeStyle</a>
-												</div>
-												<div class="title">
-													<a href="blog-detail.html">The Newest Spot</a>
-												</div>
-												<div class="meta">
-													<span class="date">April 05, 2018</span>
-													<a class="readmore" href="blog-detail.html">Read More →</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -387,6 +271,7 @@
 						<div class="row">
 							<div class="col-sm-8">
 								{% block body %}{% endblock %}
+                                <!-- Zone publicite -->
 							</div>
 							<div class="col-sm-4">
 								<div class="widget">
@@ -416,6 +301,7 @@
 										<a href="#"><i class="fa fa-linkedin"></i></a>
 									</div>
 								</div>
+                                <!-- Zone de publicite -->
 								<div class="widget">
 									<div class="widget-title-wrapper">
 										<div class="widget-title">
@@ -477,7 +363,7 @@
 											</li>
 											<li>
 												<h6 class="header-font">
-													<a href="#">
+													<a href="{{ absolute_url(path('frontend_actualite'))}}">
 														Actualites
 													</a>
 												</h6>

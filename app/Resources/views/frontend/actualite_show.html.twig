@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}{{ actualite.titre }}{% endblock %}
+
+{% block body %}
+                                <div class="single-content">
+									<div class="media-slider mb-4">
+										<div class="image"><img src="{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.titre }}"/></div>
+									</div>
+									<div class="blog-detail-header">
+										<div class="blog-detail-header-content text-center">											
+											<h2 class="entry-title">{{ actualite.titre }}</h2>
+										</div>
+									</div>
+                                    <p class="text-justify">
+                                    {{ actualite.contenu|raw }}
+                                    </p>
+								</div>
+                                <div class="blog-detail info-bottom">
+									<div class="date">{{ actualite.publieLe|date('d M Y')}}</div>
+									<div class="share">
+										<a href="#"><i class="fa fa-facebook"></i></a>
+										<a href="#"><i class="fa fa-twitter"></i></a>
+									</div>
+									<div class="comment">
+										<a href="#">Partager</a>
+									</div>
+								</div>
+                                <div class="blog-detail related-post">
+									<h4 class="title">Mes autres actualités</h4>
+									<div class="mb-3"></div>
+									<div class="blog-list">
+										<div class="row">
+											{% for similaire in similaires %}
+                                             <div class="col-md-6">
+												<div class="blog-item text-center mb-6">
+													<div class="blog-inner">
+														<a href="{{ absolute_url(path('frontend_actualite_show', {'slug': similaire.slug}))}}">
+															<div class="overlay"><i class="fa fa-link"></i></div>
+															<img src="{{ asset('uploads/actualites/'~ similaire.imageName) | imagine_filter('actualite_similaire') }}" alt="{{ similaire.titre }}" />
+														</a>
+														<div class="info">
+															<div class="title">
+																<a href="{{ absolute_url(path('frontend_actualite_show', {'slug': similaire.slug}))}}">{{ similaire.titre }}</a>
+															</div>
+															<div class="text text-justify">
+                                                            <p>{{ similaire.resume|raw }} </p>
+																<a href="{{ absolute_url(path('frontend_actualite_show', {'slug': similaire.slug}))}}" class="button small">Lire plus</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>   
+                                            {% endfor %}
+										</div>
+									</div>
+								</div>
+{% endblock %}

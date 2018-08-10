@@ -23,4 +23,19 @@ class ActualiteRepository extends \Doctrine\ORM\EntityRepository
                     ->getQuery()->getResult()
         ;
     }
+
+    /**
+     * Liste des articles similaires
+     */
+    public function findSimilaires($slug, $limit, $offset)
+    {
+        return $this->createQueryBuilder('a')
+                    ->where('a.slug <> :slug')
+                    ->orderBy('a.id', 'DESC')
+                    ->setFirstResult($offset)
+                    ->setMaxResults($limit)
+                    ->setParameter('slug', $slug)
+                    ->getQuery()->getResult()
+        ;
+    }
 }

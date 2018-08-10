@@ -41,6 +41,19 @@ class BiographieController extends Controller
     }
 
     /**
+     * @Route("/{slug}", name="frontend_biographie_show")
+     */
+    public function showAction($slug)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $biographie = $em->getRepository('AppBundle:Biographie')->findOneBy(array('slug'=>$slug));
+
+        return $this->render('frontend/biographie_show.html.twig', [
+            'biographie' => $biographie,
+        ]);
+    }
+
+    /**
      * @Route("/resume/footer", name="frontend_biographie_footer")
      */
     public function footerAction()

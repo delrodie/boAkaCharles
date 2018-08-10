@@ -20,23 +20,25 @@ class ActualiteController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // Liste des trois dernieres actualites
-        $actaulites = $em->getRepository('AppBundle:Actualite')->findAll();
+        $actualites = $em->getRepository('AppBundle:Actualite')->findBy(array('statut' => 1), array('id'=>'DESC'), 5, 0);
 
-        return $this->render('frontend/index.html.twig', [
+        return $this->render('frontend/actualites.html.twig', [
             'actualites' => $actualites,
         ]);
     }
 
     /**
-     * @Route("/resume", name="frontend_actualite_show")
+     * @Route("/{slug}", name="frontend_actualite_show")
      */
-    public function showAction()
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
-        $biographies = $em->getRepository('AppBundle:Biographie')->findAll();
+        $actualite = $em->getRepository('AppBundle:Actualite')->findOneBy(array('slug'=>$slug));
+        $similaires = $em->getRepository('AppBundle:Actualite')->findSimilaires($slug, 2, 0);
 
-        return $this->render('frontend/biographie_resume.html.twig',[
-            'biographies' => $biographies,
+        return $this->render('frontend/actualite_show.html.twig',[
+            'actualite' => $actualite,
+            'similaires' => $similaires,
         ]);
     }
 
