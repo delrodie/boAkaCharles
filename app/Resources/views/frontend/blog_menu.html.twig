@@ -1,0 +1,20 @@
+                                                        <div class="sub-menu">
+															<div class="container">
+																<div class="row">
+																	{% for article in articles %}
+                                                                     <div class="col-md-3">
+																		<div class="shout-mega-post">
+																			<a href="{{ absolute_url(path('frontend_blog_show', {'slug': article.slug}))}}">
+																				<div class="featured">
+																					<img src="{{ asset('uploads/posts/'~ article.imageName) | imagine_filter('blog_menu') }}" alt="{{ article.titre }}" />
+																				</div>
+																			</a>
+																			<div class="shout-mega-title">
+																				<a href="{{ absolute_url(path('frontend_blog_show', {'slug': article.slug}))}}">{{ article.titre }}</a>
+																			</div>
+																		</div>
+																	</div>   
+                                                                    {% endfor %}
+																</div>
+															</div>
+														</div>

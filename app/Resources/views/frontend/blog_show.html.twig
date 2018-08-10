@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}{{ actualite.titre }}{% endblock %}
+
+{% block body %}
+                                <div class="single-content">
+									<div class="media-slider mb-4">
+										<div class="image"><img src="{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.titre }}"/></div>
+									</div>
+									<div class="blog-detail-header">
+										<div class="blog-detail-header-content text-center">											
+											<h2 class="entry-title">{{ actualite.titre }}</h2>
+										</div>
+									</div>
+                                    <p class="text-justify">
+                                    {{ actualite.contenu|raw }}
+                                    </p>
+								</div>
+                                <div class="blog-detail info-bottom">
+									<div class="date">{{ actualite.publieLe|date('d M Y')}}</div>
+									<div class="share">
+										<a href="#"><i class="fa fa-facebook"></i></a>
+										<a href="#"><i class="fa fa-twitter"></i></a>
+									</div>
+									<div class="comment">
+										<a href="#">Partager</a>
+									</div>
+								</div>
+{% endblock %}

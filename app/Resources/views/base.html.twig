@@ -53,7 +53,7 @@
 							<a href="{{ absolute_url(path('frontend_actualite'))}}">Actualites </a>
 						</li>
 						<li>
-							<a href="#">Blog </a>
+							<a href="{{ absolute_url(path('frontend_blog'))}}">Blog </a>
 						</li>
 						<li><a href="#">Contribution</a></li>
 						<li>
@@ -124,17 +124,8 @@
 												<a href="{{ absolute_url(path('frontend_actualite'))}}">Actualites </a>
 											</li>
 											<li>
-												<a href="#">Blog <i class="fa fa-angle-down"></i></a>
-												<ul class="sub-menu">
-													<li><a href="shop.html">Shop</a></li>
-													<li><a href="shop-detail.html">Single Product</a></li>
-													<li><a href="cart-empty.html">Empty Cart</a></li>
-													<li><a href="cart.html">Cart</a></li>
-													<li><a href="checkout.html">Checkout</a></li>
-													<li><a href="my-account.html">My account</a></li>
-												</ul>
+												<a href="{{ absolute_url(path('frontend_blog'))}}">Blog </a>
 											</li>
-											<li><a href="#">Contribution</a></li>
 											<li><a href="#">Contact</a></li>
 										</ul>
 									</div>
@@ -183,68 +174,8 @@
 														<a href="{{ absolute_url(path('frontend_actualite'))}}">Actualites </a>
 													</li>
 													<li class="megamenu mega-col-4">
-														<a href="#">Blog <i class="fa fa-angle-down"></i></a>
-														<div class="sub-menu">
-															<div class="container">
-																<div class="row">
-																	<div class="col-md-3">
-																		<div class="shout-mega-post">
-																			<a href="blog-detail.html">
-																				<div class="featured">
-																					<img src="images/blog/03.jpg" alt="" />
-																				</div>
-																			</a>
-																			<div class="shout-mega-date">May 31, 2017</div>
-																			<div class="shout-mega-title">
-																				<a href="blog-detail.html">We Love Blogging</a>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-md-3">
-																		<div class="shout-mega-post">
-																			<a href="blog-detail.html">
-																				<div class="featured">
-																					<img src="images/blog/03.jpg" alt="" />
-																				</div>
-																			</a>
-																			<div class="shout-mega-date">May 31, 2017</div>
-																			<div class="shout-mega-title">
-																				<a href="blog-detail.html">The Good Life</a>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-md-3">
-																		<div class="shout-mega-post">
-																			<a href="blog-detail.html">
-																				<div class="featured">
-																					<img src="images/blog/03.jpg" alt="" />
-																				</div>
-																			</a>
-																			<div class="shout-mega-date">May 31, 2017</div>
-																			<div class="shout-mega-title">
-																				<a href="blog-detail.html">Amazed, But Faithful</a>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-md-3">
-																		<div class="shout-mega-post">
-																			<a href="blog-detail.html">
-																				<div class="featured">
-																					<img src="images/blog/03.jpg" alt="" />
-																				</div>
-																			</a>
-																			<div class="shout-mega-date">May 31, 2017</div>
-																			<div class="shout-mega-title">
-																				<a href="blog-detail.html">Benefits Of Early Rising</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</li>
-													<li>
-														<a href="#">Contribution </a>
+														<a href="{{ absolute_url(path('frontend_blog'))}}">Blog <i class="fa fa-angle-down"></i></a>
+														{{ render(url('frontend_blog_menu'))}}
 													</li>
 													<li><a href="contact.html">Contact</a></li>
 												</ul>
@@ -371,16 +302,8 @@
 											</li>
 											<li>
 												<h6 class="header-font">
-													<a href="#">
+													<a href="{{ absolute_url(path('frontend_blog'))}}">
 														Blog
-													</a>
-												</h6>
-												<div class="simple_line"></div>
-											</li>
-											<li>
-												<h6 class="header-font">
-													<a href="#">
-														Contribution
 													</a>
 												</h6>
 												<div class="simple_line"></div>
