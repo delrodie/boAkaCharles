@@ -20,10 +20,12 @@ class BiographieController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // Liste des trois dernieres actualites
-        $biographie = $em->getRepository('AppBundle:Biographie')->findAll();
+        $biographies = $em->getRepository('AppBundle:Biographie')->findAll();
+        $actualites = $em->getRepository('AppBundle:Actualite')->findBy(array('statut'=>1), array('id'=>'DESC'), 3, 0);
 
-        return $this->render('frontend/index.html.twig', [
+        return $this->render('frontend/biographie_show.html.twig', [
             'biographies' => $biographies,
+            'actualites' => $actualites,
         ]);
     }
 

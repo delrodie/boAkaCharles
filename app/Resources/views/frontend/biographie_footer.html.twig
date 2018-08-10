@@ -1,5 +1,11 @@
 {% for biographie in biographies %}
 <p class="text-justify">{{ biographie.resume|raw }}</p>  
+<div class="widget-title mt-2 mb-1">Continuer a me suivre</div>
+									<div class="footer-social">
+										<a href="https://facebook.com/{{ biographie.facebook }}"><i class="fa fa-facebook"></i></a>
+										<a href="https://twitter.com/{{ biographie.twitter }}"><i class="fa fa-twitter"></i></a>
+										<a href="#"><i class="fa fa-linkedin"></i></a>
+									</div>
 {% else %}
 <p>Redaction encours...</p>
 {% endfor %}

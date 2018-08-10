@@ -1,0 +1,62 @@
+{% extends 'base_2.html.twig' %}
+
+{% block titre %}Contacter AKA Charles{% endblock %}
+
+{% block body %}
+                <div class="section section-bg-2 section-fixed pt-5 pb-5">
+					<div class="container-fluid"> 
+                        {% if (app.flashes('notice')) %}  
+                            {% for message in app.flashes('notice') %}
+                                {{ message }} 
+                            {% endfor %}
+                        {% endif %}                  
+                    </div>
+				</div>
+				<div class="section mt-7 mb-10">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8">
+								<h5 class="dark fw-600 fz-22 mb-1">Envoyer moi votre message</h5>
+								<div class="simple-line"></div>
+								<div class="mb-2"></div>
+								<div class="mb-4"></div>
+								<form class="contact-form" method="post" action="{{ path('frontend_contact_mail') }}">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="text" class="highlighted" name="name" id="name" placeholder="Nom" />
+											<div class="mb-2"></div>
+										</div>
+										<div class="col-md-4">
+											<input type="text" class="highlighted" name="email" id="email" placeholder="Email" />
+											<div class="mb-2"></div>
+										</div>
+										<div class="col-md-4">
+											<input type="text" class="highlighted" name="subject" id="subject" placeholder="Objet" />
+											<div class="mb-2"></div>
+										</div>
+										<div class="col-md-12">
+											<textarea class="highlighted" name="message" id="message" rows="8" placeholder="Votre message"></textarea>
+											<div class="mb-2"></div>
+										</div>
+										<div class="col-md-3">
+											<input type="submit" class="button" value="Envoyer"/>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="col-sm-4">
+								<h5 class="dark fw-600 fz-22 mb-1">Mes Coordonnées</h5>
+								<div class="simple-line"></div>
+								<div class="mb-2"></div>
+								<div class="mb-4"></div>
+								<h2 class="dark fw-bolder roboto fz-24 mb-1">Treichville, Abidjan</h2>
+								<h4 class="dark fw-600 roboto fz-14 contact-info">Face Eglise Notre Dame</h4>
+								<h4 class="dark fw-600 roboto fz-14 contact-info">05 BP 3329 Abidjan 05</h4>
+								<div class="simple-line thick mt-2 mb-2 mw-40"></div>
+								<a class="fw-600 roboto fz-14 contact-info" href="mailto:contact@akacharles.com">contact@akacharles.com</a>
+								<h4 class="dark fw-600 roboto fz-14 contact-info">00225 21 24 82 18</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+{% endblock %}

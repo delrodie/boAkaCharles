@@ -1,0 +1,68 @@
+{% extends 'base_2.html.twig' %}
+
+{% block titre %}Biographie de AKA Charles{% endblock %}
+
+{% block body %}
+            <div class="section">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12 p-0">
+								<img src="{{ absolute_url(asset('frontend/images/header-01.png'))}}" class="fullwidth" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section section-author-detail">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="author-detail text-center">
+									{% for biographie in biographies %}
+                                     <img src="{{ asset('uploads/biographie/'~ biographie.imageName) | imagine_filter('biographie_profil') }}" alt="" />
+									<h2 class="author-detail-name">{{ biographie.titre }}</h2>
+									<div class="text-justify">
+										{{ biographie.contenu|raw }}
+									</div>
+									<div class="author-detail-social">
+										<a href="https://facebook.com/{{ biographie.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
+										<a href="https://twiter.com/{{ biographie.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
+										<a href="#"><i class="fa fa-linkedin"></i></a>
+									</div>   
+                                    {% endfor %}
+									<div class="simple-line"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section blog-list mt-4 mb-10">
+					<div class="container">
+						<div class="row">
+							{% for actualite in actualites %}
+                             <div class="col-md-4">
+								<div class="blog-item text-center mb-6">
+									<div class="blog-inner">
+										<a href="{{ absolute_url(path('frontend_actualite_show', {'slug': actualite.slug}))}}">
+											<div class="overlay"><i class="fa fa-link"></i></div>
+											<img src="{{ asset('uploads/actualites/'~ actualite.imageName) | imagine_filter('biographie_actualite') }}" alt="" />
+										</a>
+										<div class="info">
+											<div class="tags">
+												<a href="#">{{ actualite.publieLe|date('d/m/Y')}}</a>
+											</div>
+											<div class="title">
+												<a href="{{ absolute_url(path('frontend_actualite_show', {'slug': actualite.slug}))}}">{{ actualite.titre }}</a>
+											</div>
+											<div class="text text-justify">
+                                                {{ actualite.resume|raw }}
+												<a href="{{ absolute_url(path('frontend_actualite_show', {'slug': actualite.slug}))}}" class="button small">Lire la suite</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>   
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+{% endblock %}
