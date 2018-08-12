@@ -1,0 +1,65 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}Enregistrer une nouvelle Pensée{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+      <h1>Enregistrement de nouvelle Pensée</h1>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ absolute_url(path('backend'))}}"><i class="fa fa-home"></i> Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ absolute_url(path('backend_citation_index'))}}">Citation</a></li>
+        <li class="breadcrumb-item active">Enregistrement d'une nouvelle Pensée</li>
+      </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="box box-warning">
+            <div class="box-header text-right">
+              <a href="{{ absolute_url(path('backend_citation_index'))}}" class="btn btn-social btn-primary"><i class="fa fa-list"></i>Liste des Pensées</a>
+            </div>
+            <div class="box-body">
+              <div class="row justify-content-center">
+                <div class="col-6">
+                    {{ form_start(form, {'attr':{'class':'form-horizontal'}}) }}
+                        <div class="form-group row">
+                            <label class="col-sm-4 control-label text-right">Auteur</label>
+                            <div class="col-sm-8">
+                                {{ form_widget(form.auteur)}}
+                                <span class="help-block">{{ form_errors(form.auteur)}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 control-label text-right">Oeuvre</label>
+                            <div class="col-sm-8">
+                                {{ form_widget(form.ouvrage)}}
+                                <span class="help-block">{{ form_errors(form.ouvrage)}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 control-label text-right">Pensée</label>
+                            <div class="col-sm-8">
+                                {{ form_widget(form.pensee)}}
+                                <span class="help-block">{{ form_errors(form.pensee)}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4 control-label text-right"></div>
+                            <div class="checkbox col-sm-2">
+                                {{ form_widget(form.statut)}}
+                                <label for="appbundle_citation_statut">Activé</label>
+                            </div>
+                        </div>
+                        {{ form_widget(form) }}
+                        <div class="box-footer text-right">
+                            <button type="reset" class="btn btn-default">Annuler</button>
+                            <button type="submit" class="btn btn-info">Enregistrer</button>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+{% endblock %}

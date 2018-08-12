@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Citation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ citation.id }}</td>
+            </tr>
+            <tr>
+                <th>Pensee</th>
+                <td>{{ citation.pensee }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ citation.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Ouvrage</th>
+                <td>{{ citation.ouvrage }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{% if citation.statut %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Publiepar</th>
+                <td>{{ citation.publiePar }}</td>
+            </tr>
+            <tr>
+                <th>Modifiepar</th>
+                <td>{{ citation.modifiePar }}</td>
+            </tr>
+            <tr>
+                <th>Publiele</th>
+                <td>{{ citation.publieLe }}</td>
+            </tr>
+            <tr>
+                <th>Modifiele</th>
+                <td>{{ citation.modifieLe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('backend_citation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('backend_citation_edit', { 'id': citation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
