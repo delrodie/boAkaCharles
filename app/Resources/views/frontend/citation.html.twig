@@ -1,0 +1,34 @@
+                                            <ul class="slides">
+												{% for citation in citations %}
+                                                {% set difference = date("now").diff(citation.publieLe) %}
+                                                {% set leftDays = difference.days %}  
+                                                {% set leftHours = difference.h %}  
+                                                {% set leftMinutes = difference.i %}  
+                                                 <li class="twt-item">
+													<div class="twt-body">
+														<div class="twt-in">
+															{{ citation.pensee }}
+														</div>
+														<div class="clearfix"></div>
+														<a class="twitter-time header-font fw-bolder" target="_blank" href="#">
+                                                        {% if leftDays == 0 %}
+                                                            {% if leftHours == 0 %}
+                                                                {{ leftMinutes }} minutes
+                                                            {% else %}
+                                                                {{ leftHours }} heures
+                                                            {% endif %}
+                                                        {% elseif leftDays == 1 %}
+                                                            {{ leftDays }} jour
+                                                        {% else %}
+                                                            {{ leftDays }} jours
+                                                        {% endif %}
+                                                        </a>
+														{% if citation.auteur %}<a class="twitter-time header-font fw-bolder" target="_blank" href="#"> {{ citation.auteur }}</a>{% endif %}
+                                                        {% if citation.ouvrage %}
+														<span class="twt-extra-info"> - <a class="twitter-time header-font fw-bolder" target="_blank" href="#">{{ citation.ouvrage }}</a></span>
+                                                        {% endif %}
+                                                        
+													</div>
+												</li>   
+                                                {% endfor %}
+											</ul>
