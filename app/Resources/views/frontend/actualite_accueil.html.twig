@@ -8,7 +8,7 @@
 										<img src="{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.titre }}" />
 									</a>
 									<div class="caption">
-										<span>{{ actualite.publieLe|date('d-m-Y')}}</span>
+										<span>{{ actualite.publieLe|date('Y-m-d h:i:s')|duree}}</span>
 									</div>
 								</div>
 							</div>  

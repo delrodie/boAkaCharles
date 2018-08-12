@@ -5,23 +5,23 @@
 									{% for actualite in actualites %}
                                     <div class="blog-item text-center mb-6">
 										<div class="blog-inner">
-											<a href="#">
+											<a href="{{ absolute_url(path('frontend_blog_show', {'slug': actualite.slug}))}}">
 												<div class="overlay"><i class="fa fa-link"></i></div>
 												<img src="{{ vich_uploader_asset(actualite, 'imageFile') }}" alt="{{ actualite.titre }}" />
 											</a>
 											<div class="info">
 												<div class="tags">
-													<span class="badge badge-primary">{{ actualite.publieLe|date('d/m/Y')}}</span> 
-													<a href="#">{{ actualite.rubrique }}</a>
+													<span class="badge badge-primary">{{ actualite.publieLe|date('Y-m-d h:i:s')|duree}}</span> 
+													<a href="{{ absolute_url(path('frontend_blog_show', {'slug': actualite.slug}))}}">{{ actualite.rubrique }}</a>
 												</div>
 												<div class="title">
-													<a href="#">{{ actualite.titre }}</a>
+													<a href="{{ absolute_url(path('frontend_blog_show', {'slug': actualite.slug}))}}">{{ actualite.titre }}</a>
 												</div>
 												<div class="text text-justify">
 													<p>
                                                         {{ actualite.resume|raw }}
                                                     </p>
-													<a href="#" class="button small">Lire la suite</a>
+													<a href="{{ absolute_url(path('frontend_blog_show', {'slug': actualite.slug}))}}" class="button small">Lire la suite</a>
 												</div>
 											</div>
 										</div>
