@@ -1,21 +1,21 @@
 {% extends 'backend.html.twig' %}
 
-{% block title %}Enregistrer un nouvel Utilisateur{% endblock %}
+{% block title %}Gestion de la biographie{% endblock %}
 
 {% block body %}
     <section class="content-header">
-      <h1>Enregistrement d'un nouvel utilisateur</h1>
+      <h1>Gestion de la biographie</h1>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ absolute_url(path('backend'))}}"><i class="fa fa-home"></i> Accueil</a></li>
-        <li class="breadcrumb-item"><a href="{{ absolute_url(path('admin_user_index'))}}">Utilisateur</a></li>
-        <li class="breadcrumb-item active">Enregistrement d'un nouvel utilisatement</li>
+        <li class="breadcrumb-item"><a href="{{ absolute_url(path('backend_biographie_index'))}}">Utilisateur</a></li>
+        <li class="breadcrumb-item active">Gestion de la biographie</li>
       </ol>
     </section>
     <section class="content">
         <div class="row">
             <div class="box box-warning">
             <div class="box-header text-right">
-              <a href="{{ absolute_url(path('admin_user_index'))}}" class="btn btn-social btn-primary"><i class="fa fa-list"></i>Liste des utilisateurs</a>
+              <a href="{{ absolute_url(path('backend_biographie_index'))}}" class="btn btn-social btn-primary"><i class="fa fa-list"></i>La biographie</a>
             </div>
             <div class="box-body">
               <div class="row justify-content-center">
