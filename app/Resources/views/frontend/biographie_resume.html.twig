@@ -1,5 +1,9 @@
 {% for biographie in biographies %}
-<img src="{{ vich_uploader_asset(biographie, 'imageFile') }}" alt="{{ biographie.titre }}" />
+	{% if (biographie.imageName) %}
+		<img src="{{ vich_uploader_asset(biographie, 'imageFile') }}" alt="{{ biographie.titre }}" />
+	{% else %}
+		<img src="{{ absolute_url(asset('backend/images/login-register.jpg')) }}" alt="AKA CHARLES">
+	{% endif %}
 <div class="mb-1"></div>
 <p class="text-justify">{{ biographie.resume|raw }}</p>  
 {% else %}

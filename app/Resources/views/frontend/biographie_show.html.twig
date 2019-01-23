@@ -18,7 +18,11 @@
 							<div class="col-md-12">
 								<div class="author-detail text-center">
 									{% for biographie in biographies %}
-                                     <img src="{{ asset('uploads/biographie/'~ biographie.imageName) | imagine_filter('biographie_profil') }}" alt="" />
+										{% if (biographie.imageName) %}
+											<img src="{{ asset('uploads/biographie/'~ biographie.imageName) | imagine_filter('biographie_profil') }}" alt="{{ biographie.titre }}" />
+										{% else %}
+											<img src="{{ asset('backend/images/login-register.jpg') | imagine_filter('biographie_profil') }}" alt="AKA Charles" />
+										{% endif %}
 									<h2 class="author-detail-name">{{ biographie.titre }}</h2>
 									<div class="text-justify">
 										{{ biographie.contenu|raw }}

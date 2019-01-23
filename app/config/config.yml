@@ -216,6 +216,7 @@ liip_imagine:
                 # 4px larger to create a 2px border around the final image
                 background: { size: [360, 220], position: center, color: '#ffffff'}
 
+
 ivory_ck_editor:
     default_config: default
     configs:

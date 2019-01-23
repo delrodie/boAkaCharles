@@ -32,8 +32,11 @@
 
              <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img rounded-circle img-fluid mx-auto d-block" src="{{ vich_uploader_asset(biographie, 'imageFile') }}" alt="{{ biographie.titre }}">
-
+				{% if (biographie.imageName) %}
+					<img class="profile-user-img rounded-circle img-fluid mx-auto d-block" src="{{ vich_uploader_asset(biographie, 'imageFile') }}" alt="{{ biographie.titre }}">
+				{% else %}
+					<img src="{{ absolute_url(asset('backend/images/login-register.jpg')) }}" alt="" class="profile-user-img rounded-circle img-fluid mx-auto d-block">
+				{% endif %}
               <h3 class="profile-username text-center">{{ biographie.titre }}</h3>
             
               <div class="row">
